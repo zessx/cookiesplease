@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Cookiesplease by zessx</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/zessx/cookiesplease">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Cookiesplease</h1>
+            <h2>Little script to quickly comply with EU cookie law</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/zessx/cookiesplease/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/zessx/cookiesplease/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="cookiesplease" class="anchor" href="#cookiesplease"><span class="octicon octicon-link"></span></a>CookiesPlease</h1>
+
+<p>Little script to quickly comply with EU cookie law.<br>
+It'll allow you to add a message asking the user is he accepts or not cookies' storage for your website.</p>
+
+<h2>
+<a name="how-to-use-it-" class="anchor" href="#how-to-use-it-"><span class="octicon octicon-link"></span></a>How to use it ?</h2>
+
+<p>You just have to remember two things :</p>
+
+<ul>
+<li>CookiesPlease needs to be initialized <strong>AFTER the DOM is ready</strong> (you can easily do it with <a href="http://jquery.com/">jQuery</a> or <a href="https://code.google.com/p/domready/">domready</a>)</li>
+<li>CookiesPlease needs to be initialized <strong>BEFORE any other javascript</strong> (to avoid cookies to be created)</li>
+</ul><p>Here's a common example using jQuery:</p>
+
+<pre><code>&lt;script src="vendor/jquery/jquery.min.js"&gt;
+&lt;script src="vendor/cookiesplease/cookiesplease.min.js"&gt;
+&lt;script&gt;
+    $(function() {
+        cookiesplease.init();
+    });
+&lt;/script&gt;
+</code></pre>
+
+<p>This starter script will already display the message to the user.<br>
+You then can check if cookies are allowed :</p>
+
+<pre><code>if(cookiesplease.wasAccepted()) {
+    // Run JS if user has accepted cookies' storage
+} 
+</code></pre>
+
+<p>Or if they're not :</p>
+
+<pre><code>if(cookiesplease.wasDeclined()) {
+    // Run JS if user has refused cookies' storage
+} 
+</code></pre>
+
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<table>
+<thead><tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Usage</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>buttonAccept</code></td>
+<td>true</td>
+<td>Show a button to accept cookies' storage</td>
+</tr>
+<tr>
+<td><code>buttonDecline</code></td>
+<td>false</td>
+<td>Show a button to decline cookies' storage</td>
+</tr>
+<tr>
+<td><code>clearCookiesOnDecline</code></td>
+<td>false</td>
+<td>Remove every stored cookie if user refuse their storage</td>
+</tr>
+<tr>
+<td><code>buttonAcceptText</code></td>
+<td>'Continue'</td>
+<td>Text used for the accept button</td>
+</tr>
+<tr>
+<td><code>buttonDeclineText</code></td>
+<td>'Decline'</td>
+<td>Text used for the decline button</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>'This website uses cookies so that we can provide you the best user experience possible.By continuing to browse the site you are agreeing to our use of cookies.'</td>
+<td>Message displayed</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="what-about-the-css-" class="anchor" href="#what-about-the-css-"><span class="octicon octicon-link"></span></a>What about the CSS ?</h2>
+
+<p>CookiesPlease has it's own default CSS, but you can easily customize it. Everything is wrapped in the following element :</p>
+
+<pre><code>&lt;div id="cookiesplease" class="cookiesplease"&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+
+<p>CookiesPlease's default CSS use the <code>.cookiesplease</code> class, to allow you to use <code>#cookiesplease</code> id (then avoiding any conflict) :</p>
+
+
+
+<pre><code>#cookiesplease {
+    background-color: #eee;
+    border-top: 1px solid #222;
+    color: #222;
+}
+#cookiesplease p {}
+#cookiesplease a {}
+#cookiesplease button {}
+#cookiesplease-accept {}
+#cookiesplease-decline {}
+</code></pre>
+
+<h2>
+<a name="legals" class="anchor" href="#legals"><span class="octicon octicon-link"></span></a>Legals</h2>
+
+<ul>
+<li>Author : <a href="https://github.com/zessx">zessx</a>
+</li>
+<li>Licence : <a href="http://opensource.org/licenses/MIT">MIT</a> </li>
+<li>Contact : <a href="https://twitter.com/zessx">@zessx</a>
+</li>
+<li>Link  : <a href="http://cookiesplease.smarchal.com">http://cookiesplease.smarchal.com</a>
+</li>
+</ul><h2>
+<a name="donations" class="anchor" href="#donations"><span class="octicon octicon-link"></span></a>Donations</h2>
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=KTYWBM9HJMMSE&amp;lc=FR&amp;item_name=Buy%20a%20coffee%20to%20zessx%20%28Samuel%20Marchal%29&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abmac%3aNonHosted"><img src="http://doc.smarchal.com/bmac" alt="Buy me a coffee !"></a></p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/zessx">zessx</a> can be found on <a href="https://github.com/zessx/cookiesplease">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32364969-5");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
