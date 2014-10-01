@@ -45,7 +45,7 @@ Options
 | `clearCookiesOnDecline` | false                                                                                                                                                             | Remove every stored cookie if user refuse their storage |
 | `buttonAcceptText`      | 'Continue'                                                                                                                                                        | Text used for the accept button                         |
 | `buttonDeclineText`     | 'Decline'                                                                                                                                                         | Text used for the decline button                        |
-| `message`               | 'This website uses cookies so that we can provide you the best user experience possible.By continuing to browse the site you are agreeing to our use of cookies.' | Message displayed                                       |
+| `message`               | 'This website...'           | Message displayed                                       |
 
 What about the CSS ?
 --------------------
