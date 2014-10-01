@@ -51,7 +51,7 @@ var cookiesplease = cookiesplease || {
 
     accept: function() {
         this.set(this.cookieName, this.statusAccepted, 365);
-        document.getElementById('cookiesplease').style.bottom = document.getElementById('cookiesplease').outerHeight;
+        document.getElementById('cookiesplease').style.bottom = -1 * document.getElementById('cookiesplease').offsetHeight + 'px';
     },
 
     decline: function() {
@@ -59,7 +59,7 @@ var cookiesplease = cookiesplease || {
             this.clear();
         }
         this.set(this.cookieName, this.statusDeclined, 365);
-        document.getElementById('cookiesplease').style.bottom = document.getElementById('cookiesplease').outerHeight;
+        document.getElementById('cookiesplease').style.bottom = -1 * document.getElementById('cookiesplease').offsetHeight + 'px';
     },
 
     wasAccepted: function() {
