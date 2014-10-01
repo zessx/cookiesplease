@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
+    <meta name="description" content="Cookiesplease : Little script to quickly comply with EU cookie law">
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Cookiesplease by zessx</title>
+    <title>Cookiesplease</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/zessx/cookiesplease">View on GitHub</a>
-    <div class="shell">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Cookiesplease</h1>
-            <h2>Little script to quickly comply with EU cookie law</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/zessx/cookiesplease">View on GitHub</a>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/zessx/cookiesplease/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/zessx/cookiesplease/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+          <h1 id="project_title">Cookiesplease</h1>
+          <h2 id="project_tagline">Little script to quickly comply with EU cookie law</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/zessx/cookiesplease/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/zessx/cookiesplease/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="cookiesplease" class="anchor" href="#cookiesplease"><span class="octicon octicon-link"></span></a>CookiesPlease</h1>
 
@@ -112,6 +97,11 @@ You then can check if cookies are allowed :</p>
 <td>Remove every stored cookie if user refuse their storage</td>
 </tr>
 <tr>
+<td><code>storeChoiceOnDecline</code></td>
+<td>true</td>
+<td>Remember user's decline (...storing a cookie!!)</td>
+</tr>
+<tr>
 <td><code>buttonAcceptText</code></td>
 <td>'Continue'</td>
 <td>Text used for the accept button</td>
@@ -162,26 +152,21 @@ You then can check if cookies are allowed :</p>
 <li>Licence : <a href="http://opensource.org/licenses/MIT">MIT</a> </li>
 <li>Contact : <a href="https://twitter.com/zessx">@zessx</a>
 </li>
-<li>Link  : <a href="http://cookiesplease.smarchal.com">http://cookiesplease.smarchal.com</a>
+<li>Link  : <a href="http://smarchal.com/cookiesplease">http://cookiesplease.smarchal.com</a>
 </li>
 </ul><h2>
 <a name="donations" class="anchor" href="#donations"><span class="octicon octicon-link"></span></a>Donations</h2>
 
 <p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=KTYWBM9HJMMSE&amp;lc=FR&amp;item_name=Buy%20a%20coffee%20to%20zessx%20%28Samuel%20Marchal%29&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abmac%3aNonHosted"><img src="http://doc.smarchal.com/bmac" alt="Buy me a coffee !"></a></p>
       </section>
+    </div>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/zessx">zessx</a> can be found on <a href="https://github.com/zessx/cookiesplease">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cookiesplease maintained by <a href="https://github.com/zessx">zessx</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
-
     </div>
 
               <script type="text/javascript">
@@ -194,6 +179,7 @@ You then can check if cookies are allowed :</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
