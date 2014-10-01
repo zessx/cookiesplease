@@ -48,12 +48,14 @@ var cookiesplease = cookiesplease || {
                 notice.innerHTML += '<button class="cookiesplease-decline" onclick="cookiesplease.decline();">' + this.options.buttonDeclineText + '</button>';
             }
             document.body.appendChild(notice);
+
+            document.body.className += ' cookiesplease-shown';
         }
     },
 
     accept: function() {
         this.set(this.cookieName, this.statusAccepted, 365);
-        document.getElementById('cookiesplease').className += ' cookiesplease-hidden';
+        this.hide();
     },
 
     decline: function() {
@@ -63,7 +65,12 @@ var cookiesplease = cookiesplease || {
         if(this.options.storeChoiceOnDecline) {
             this.set(this.cookieName, this.statusDeclined, 365);
         }
+        this.hide();
+    },
+
+    hide: function() {
         document.getElementById('cookiesplease').className += ' cookiesplease-hidden';
+        document.body.className = document.body.className.replace(/\bcookiesplease-shown\b/, '');
     },
 
     wasAccepted: function() {

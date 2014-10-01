@@ -71,6 +71,10 @@ CookiesPlease's default CSS use the `.cookiesplease` class, to allow you to use 
     #cookiesplease button {}
     #cookiesplease-accept {}
     #cookiesplease-decline {}
+    #cookiesplease-hidden {}
+    body.cookiesplease-shown {}
+
+Please note that the `.cookiesplease-shown` is added to the `<body>` element, until the user click on any button. This allows you to customize external elements, for pushing down the body for example.
 
 Legals
 ------
