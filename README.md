@@ -76,7 +76,7 @@ Legals
 - Author : [zessx](https://github.com/zessx)
 - Licence : [MIT](http://opensource.org/licenses/MIT) 
 - Contact : [@zessx](https://twitter.com/zessx)
-- Link  : [http://cookiesplease.smarchal.com](http://cookiesplease.smarchal.com)
+- Link  : [http://cookiesplease.smarchal.com](http://smarchal.com/cookiesplease)
 
 Donations
 ---------
