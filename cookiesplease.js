@@ -8,6 +8,7 @@ var cookiesplease = cookiesplease || {
         buttonDecline: false,
         clearCookiesOnDecline: false,
         storeChoiceOnDecline: true,
+        prependToBody: false,
         buttonAcceptText: 'Continue',
         buttonDeclineText: 'Decline',
         message: 'This website uses cookies so that we can provide you the best user experience possible.<br>By continuing to browse the site you are agreeing to our use of cookies.',
@@ -47,7 +48,11 @@ var cookiesplease = cookiesplease || {
             if(this.options.buttonDecline) {
                 notice.innerHTML += '<button class="cookiesplease-decline" onclick="cookiesplease.decline();">' + this.options.buttonDeclineText + '</button>';
             }
-            document.body.appendChild(notice);
+            if(this.options.prependToBody) {
+                document.body.innerHTML = notice.outerHTML + document.body.innerHTML;
+            } else {
+                document.body.appendChild(notice);
+            }
 
             document.body.className += ' cookiesplease-shown';
         }
