@@ -1,3 +1,5 @@
+![cookiesplease](cookiesplease.png)
+
 CookiesPlease
 =============
 
