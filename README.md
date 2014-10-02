@@ -4,6 +4,12 @@ CookiesPlease
 Little script to quickly comply with EU cookie law.  
 It'll allow you to add a message asking the user is he accepts or not cookies' storage for your website.
 
+An example ?
+------------
+
+You can see a working example on the author's website : [smarchal.com](http://smarchal.com).  
+This implementation uses default options of CookiesPlease.
+
 How to use it ?
 ---------------
 
