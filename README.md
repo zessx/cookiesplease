@@ -1,4 +1,4 @@
-![cookiesplease](cookiesplease.png)
+![cookiesplease](https://raw.githubusercontent.com/zessx/cookiesplease/master/cookiesplease.png)
 
 CookiesPlease
 =============
