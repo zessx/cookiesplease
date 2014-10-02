@@ -44,15 +44,16 @@ Or if they're not :
 Options
 -------
 
-| Option                  | Default value     | Usage                                                   |
-|-------------------------|-------------------|---------------------------------------------------------|
-| `buttonAccept`          | true              | Show a button to accept cookies' storage                |
-| `buttonDecline`         | false             | Show a button to decline cookies' storage               |
-| `clearCookiesOnDecline` | false             | Remove every stored cookie if user refuse their storage |
-| `storeChoiceOnDecline`  | true              | Remember user's decline (...storing a cookie!!)         |
-| `buttonAcceptText`      | 'Continue'        | Text used for the accept button                         |
-| `buttonDeclineText`     | 'Decline'         | Text used for the decline button                        |
-| `message`               | 'This website...' | Message displayed                                       |
+| Option                  | Default value     | Usage                                                     |
+|-------------------------|-------------------|-----------------------------------------------------------|
+| `buttonAccept`          | true              | Show a button to accept cookies' storage                  |
+| `buttonDecline`         | false             | Show a button to decline cookies' storage                 |
+| `clearCookiesOnDecline` | false             | Remove every stored cookie if user refuse their storage   |
+| `storeChoiceOnDecline`  | true              | Remember user's decline (...storing a cookie!!)           |
+| `prependToBody`         | false             | If you prefer to add the div at the beginning of `<body>` |
+| `buttonAcceptText`      | 'Continue'        | Text used for the accept button                           |
+| `buttonDeclineText`     | 'Decline'         | Text used for the decline button                          |
+| `message`               | 'This website...' | Message displayed                                         |
 
 What about the CSS ?
 --------------------

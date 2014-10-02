@@ -26,15 +26,15 @@ var cookiesplease = cookiesplease || {
 
             var css = document.createElement('style');
             css.rel = 'stylesheet';
-            css.innerHTML = '.cookiesplease { position: fixed; left: 0; right: 0; top: 0; color: white; font-size: 14px; background-color: #222; z-index: 9999; text-align: center; line-height: 20px; transition: top .2s; }';
-            css.innerHTML += '.cookiesplease p { display: inline-block; vertical-align: middle; text-align: right; font-size: 14px; margin: 10px; max-width: 50%; }';
+            css.innerHTML = '.cookiesplease { position: fixed; left: 0; right: 0; top: 0; color: white; font-size: 14px; background-color: #222; z-index: 9999; text-align: center; line-height: 20px; transform-origin: 0 0; -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transition: transform .2s; }';
+            css.innerHTML += '.cookiesplease p { display: inline-block; vertical-align: middle; text-align: right; font-size: 14px; margin: 10px; max-width: 80%; }';
             css.innerHTML += '.cookiesplease a { text-decoration: underline; }';
             css.innerHTML += '.cookiesplease button { display: inline-block; vertical-align: middle; border: none; padding: 0 15px; margin: 10px 5px; line-height: 40px; transition: background-color .2s; }';
             css.innerHTML += '.cookiesplease-accept { background-color: #9fb35a }';
             css.innerHTML += '.cookiesplease-decline { background-color: #f17166 }';
             css.innerHTML += '.cookiesplease-accept:hover, .cookiesplease-accept:focus { background-color: #8ca047 }';
             css.innerHTML += '.cookiesplease-decline:hover, .cookiesplease-decline:focus { background-color: #e06156 }';
-            css.innerHTML += '.cookiesplease.cookiesplease-hidden { top: -60px; }';
+            css.innerHTML += '.cookiesplease.cookiesplease-hidden { transform: translate(0, -100%); -webkit-transform: translate(0, -100%); -ms-transform: translate(0, -100%); }';
             document.getElementsByTagName('head')[0].appendChild(css);
 
             var notice = document.createElement('div');
