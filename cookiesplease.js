@@ -26,17 +26,22 @@ var cookiesplease = cookiesplease || {
         if(!(this.wasAccepted() || this.wasDeclined())) {
 
             var css = document.createElement('style');
-            css.rel = 'stylesheet';
-            css.innerHTML = '.cookiesplease { position: fixed; left: 0; right: 0; top: 0; color: white; font-size: 14px; background-color: #222; z-index: 9999; text-align: center; line-height: 20px; transform-origin: 0 0; -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transition: transform .2s; }';
-            css.innerHTML += '.cookiesplease p { display: inline-block; vertical-align: middle; text-align: right; font-size: 14px; margin: 10px; max-width: 80%; }';
-            css.innerHTML += '.cookiesplease a { text-decoration: underline; }';
-            css.innerHTML += '.cookiesplease button { display: inline-block; vertical-align: middle; border: none; padding: 0 15px; margin: 10px 5px; line-height: 40px; transition: background-color .2s; }';
-            css.innerHTML += '.cookiesplease-accept { background-color: #9fb35a }';
-            css.innerHTML += '.cookiesplease-decline { background-color: #f17166 }';
-            css.innerHTML += '.cookiesplease-accept:hover, .cookiesplease-accept:focus { background-color: #8ca047 }';
-            css.innerHTML += '.cookiesplease-decline:hover, .cookiesplease-decline:focus { background-color: #e06156 }';
-            css.innerHTML += '.cookiesplease.cookiesplease-hidden { transform: translate(0, -100%); -webkit-transform: translate(0, -100%); -ms-transform: translate(0, -100%); }';
             document.getElementsByTagName('head')[0].appendChild(css);
+            css.rel = 'stylesheet';
+            var cssRules = '.cookiesplease { position: fixed; left: 0; right: 0; top: 0; color: white; font-size: 14px; background-color: #222; z-index: 9999; text-align: center; line-height: 20px; transform-origin: 0 0; -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transition: transform .2s; }';
+            cssRules += '.cookiesplease p { display: inline-block; vertical-align: middle; text-align: right; font-size: 14px; margin: 10px; max-width: 80%; }';
+            cssRules += '.cookiesplease a { text-decoration: underline; }';
+            cssRules += '.cookiesplease button { display: inline-block; vertical-align: middle; border: none; padding: 0 15px; margin: 10px 5px; line-height: 40px; transition: background-color .2s; }';
+            cssRules += '.cookiesplease-accept { background-color: #9fb35a }';
+            cssRules += '.cookiesplease-decline { background-color: #f17166 }';
+            cssRules += '.cookiesplease-accept:hover, .cookiesplease-accept:focus { background-color: #8ca047 }';
+            cssRules += '.cookiesplease-decline:hover, .cookiesplease-decline:focus { background-color: #e06156 }';
+            cssRules += '.cookiesplease.cookiesplease-hidden { transform: translate(0, -100%); -webkit-transform: translate(0, -100%); -ms-transform: translate(0, -100%); }';
+            if(typeof css.styleSheet !== 'undefined') {
+                css.styleSheet.cssText = cssRules;
+            } else {
+                css.innerHTML = cssRules;
+            }
 
             var notice = document.createElement('div');
             notice.id = 'cookiesplease';
