@@ -7,6 +7,8 @@ var cookiesplease = cookiesplease || {
         buttonAccept: true,
         buttonDecline: false,
         clearCookiesOnDecline: false,
+        storeChoiceOnDecline: true,
+        prependToBody: false,
         buttonAcceptText: 'Continue',
         buttonDeclineText: 'Decline',
         message: 'This website uses cookies so that we can provide you the best user experience possible.<br>By continuing to browse the site you are agreeing to our use of cookies.',
@@ -24,16 +26,22 @@ var cookiesplease = cookiesplease || {
         if(!(this.wasAccepted() || this.wasDeclined())) {
 
             var css = document.createElement('style');
-            css.rel = 'stylesheet';
-            css.innerHTML = '.cookiesplease { position: fixed; left: 0; right: 0; bottom: 0; color: white; background-color: #222; z-index: 9999; text-align: center; line-height: 20px; transition: bottom .2s; }';
-            css.innerHTML += '.cookiesplease p { display: inline-block; vertical-align: middle; text-align: right; margin: 10px; }';
-            css.innerHTML += '.cookiesplease a { text-decoration: underline; }';
-            css.innerHTML += '.cookiesplease button { display: inline-block; vertical-align: middle; padding: 0 15px; margin: 10px 5px; line-height: 40px; transition: background-color .2s; }';
-            css.innerHTML += '.cookiesplease-accept { background-color: #9fb35a }';
-            css.innerHTML += '.cookiesplease-decline { background-color: #f17166 }';
-            css.innerHTML += '.cookiesplease-accept:hover, .cookiesplease-accept:focus { background-color: #8ca047 }';
-            css.innerHTML += '.cookiesplease-decline:hover, .cookiesplease-decline:focus { background-color: #e06156 }';
             document.getElementsByTagName('head')[0].appendChild(css);
+            css.rel = 'stylesheet';
+            var cssRules = '.cookiesplease { position: fixed; left: 0; right: 0; top: 0; color: white; font-size: 14px; background-color: #222; z-index: 9999; text-align: center; line-height: 20px; transform-origin: 0 0; -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transition: transform .2s; }';
+            cssRules += '.cookiesplease p { display: inline-block; vertical-align: middle; text-align: right; font-size: 14px; margin: 10px; max-width: 80%; }';
+            cssRules += '.cookiesplease a { text-decoration: underline; }';
+            cssRules += '.cookiesplease button { display: inline-block; vertical-align: middle; border: none; padding: 0 15px; margin: 10px 5px; line-height: 40px; transition: background-color .2s; }';
+            cssRules += '.cookiesplease-accept { background-color: #9fb35a }';
+            cssRules += '.cookiesplease-decline { background-color: #f17166 }';
+            cssRules += '.cookiesplease-accept:hover, .cookiesplease-accept:focus { background-color: #8ca047 }';
+            cssRules += '.cookiesplease-decline:hover, .cookiesplease-decline:focus { background-color: #e06156 }';
+            cssRules += '.cookiesplease.cookiesplease-hidden { transform: translate(0, -100%); -webkit-transform: translate(0, -100%); -ms-transform: translate(0, -100%); }';
+            if(typeof css.styleSheet !== 'undefined') {
+                css.styleSheet.cssText = cssRules;
+            } else {
+                css.innerHTML = cssRules;
+            }
 
             var notice = document.createElement('div');
             notice.id = 'cookiesplease';
@@ -45,21 +53,34 @@ var cookiesplease = cookiesplease || {
             if(this.options.buttonDecline) {
                 notice.innerHTML += '<button class="cookiesplease-decline" onclick="cookiesplease.decline();">' + this.options.buttonDeclineText + '</button>';
             }
-            document.body.appendChild(notice);
+            if(this.options.prependToBody) {
+                document.body.innerHTML = notice.outerHTML + document.body.innerHTML;
+            } else {
+                document.body.appendChild(notice);
+            }
+
+            document.body.className += ' cookiesplease-shown';
         }
     },
 
     accept: function() {
         this.set(this.cookieName, this.statusAccepted, 365);
-        document.getElementById('cookiesplease').style.bottom = document.getElementById('cookiesplease').outerHeight;
+        this.hide();
     },
 
     decline: function() {
         if(this.options.clearCookiesOnDecline) {
             this.clear();
         }
-        this.set(this.cookieName, this.statusDeclined, 365);
-        document.getElementById('cookiesplease').style.bottom = document.getElementById('cookiesplease').outerHeight;
+        if(this.options.storeChoiceOnDecline) {
+            this.set(this.cookieName, this.statusDeclined, 365);
+        }
+        this.hide();
+    },
+
+    hide: function() {
+        document.getElementById('cookiesplease').className += ' cookiesplease-hidden';
+        document.body.className = document.body.className.replace(/\bcookiesplease-shown\b/, '');
     },
 
     wasAccepted: function() {
