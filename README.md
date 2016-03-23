@@ -1,7 +1,7 @@
 ![cookiesplease](https://raw.githubusercontent.com/zessx/cookiesplease/master/cookiesplease.png)
 
-CookiesPlease
-=============
+CookiesPleaseJS
+===============
 
 Little script to quickly comply with EU cookie law.  
 It'll allow you to add a message asking the user is he accepts or not cookies' storage for your website.
@@ -10,15 +10,15 @@ An example ?
 ------------
 
 You can see a working example on the author's website : [smarchal.com](http://smarchal.com).  
-This implementation uses default options of CookiesPlease.
+This implementation uses default options of CookiesPleaseJS.
 
 How to use it ?
 ---------------
 
 You just have to remember two things :
  
- - CookiesPlease needs to be initialized **AFTER the DOM is ready** (you can easily do it with [jQuery](http://jquery.com/) or [domready](https://code.google.com/p/domready/))
- - CookiesPlease needs to be initialized **BEFORE any other javascript** (to avoid cookies to be created)
+ - CookiesPleaseJS needs to be initialized **AFTER the DOM is ready** (you can easily do it with [jQuery](http://jquery.com/) or [domready](https://code.google.com/p/domready/))
+ - CookiesPleaseJS needs to be initialized **BEFORE any other javascript** (to avoid cookies to be created)
 
 Here's a common example using jQuery:
 
@@ -60,13 +60,13 @@ Options
 What about the CSS ?
 --------------------
 
-CookiesPlease has it's own default CSS, but you can easily customize it. Everything is wrapped in the following element :
+CookiesPleaseJS has it's own default CSS, but you can easily customize it. Everything is wrapped in the following element :
 
     <div id="cookiesplease" class="cookiesplease">
         ...
     </div>
 
-CookiesPlease's default CSS use the `.cookiesplease` class, to allow you to use `#cookiesplease` id (then avoiding any conflict) :
+CookiesPleaseJS' default CSS use the `.cookiesplease` class, to allow you to use `#cookiesplease` id (then avoiding any conflict) :
 
 <!-- language: lang-css -->
 
