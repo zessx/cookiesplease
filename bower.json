@@ -1,0 +1,20 @@
+{
+  "name": "cookiesplease",
+  "description": "Little script to quickly comply with EU cookie law.",
+  "main": [
+    "cookiesplease.js"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "js",
+    "cookie"
+  ],
+  "authors": [
+    "Samuel Marchal <contact@zes.sx>"
+  ],
+  "homepage": "http://smarchal.com/cookiesplease/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zessx/cookiesplease.git"
+  }
+}
