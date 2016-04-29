@@ -16,5 +16,9 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:zessx/cookiesplease.git"
-  }
+  },
+  "ignore": [
+    "cookiesplease.png",
+    "README.md"
+  ]
 }

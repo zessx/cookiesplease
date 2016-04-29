@@ -6,42 +6,55 @@ CookiesPlease
 Little script to quickly comply with EU cookie law.  
 It'll allow you to add a message asking the user is he accepts or not cookies' storage for your website.
 
-An example ?
+Installation
 ------------
 
-You can see a working example on the author's website : [smarchal.com](http://smarchal.com).  
-This implementation uses default options of CookiesPlease.
+CookiesPlease is available on bower:
 
-How to use it ?
----------------
+    $ bower install cookiesplease
 
-You just have to remember two things :
- 
- - CookiesPlease needs to be initialized **AFTER the DOM is ready** (you can easily do it with [jQuery](http://jquery.com/) or [domready](https://code.google.com/p/domready/))
- - CookiesPlease needs to be initialized **BEFORE any other javascript** (to avoid cookies to be created)
+If you're not using bower you still can install it manually, cloning this repository.
 
-Here's a common example using jQuery:
+Usage
+-----
 
-    <script src="vendor/jquery/jquery.min.js">
-    <script src="vendor/cookiesplease/cookiesplease.min.js">
-    <script>
-        $(function() {
-            cookiesplease.init();
-        });
-    </script>
+Simply include CookiesPlease as **the very first JavaScript** in your `<head>` tag.  
+As it is now self-initialized, you no longer have to call `cookiesplease.init()`.
 
-This starter script will already display the message to the user.  
-You then can check if cookies are allowed :
+CookiesPlease offers you two functions to check if cookies were accepted, or not:
 
     if(cookiesplease.wasAccepted()) {
         // Run JS if user has accepted cookies' storage
     } 
-
-Or if they're not :
-
     if(cookiesplease.wasDeclined()) {
         // Run JS if user has refused cookies' storage
     } 
+
+Furthermore, it'll dispatch an event when user accept/decline cookies. This event allows you to load others scripts without refreshing the page:
+
+    document.addEventListener('CookiesPleaseAccepted', function() {});
+    document.addEventListener('CookiesPleaseDeclined', function() {});
+
+Here's a common example, defering Google Analytics' loading while user hasn't accepted cookies:
+
+    <head>
+        <script src="vendor/cookiesplease/cookiesplease.min.js">
+        <script>
+            function loadGoogleAnalytics() {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-XXXXXXXX-X', 'auto');
+                ga('send', 'pageview');
+            }
+            if(cookiesplease.wasAccepted()) {
+                loadGoogleAnalytics();
+            }
+            document.addEventListener('CookiesPleaseAccepted', loadGoogleAnalytics);
+        </script>
+    </head>
 
 Options
 -------
