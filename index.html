@@ -22,51 +22,63 @@
       <p><img src="https://raw.githubusercontent.com/zessx/cookiesplease/master/cookiesplease.png" alt="cookiesplease"></p>
 
 <h1>
-<a id="cookiespleasejs" class="anchor" href="#cookiespleasejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CookiesPleaseJS</h1>
+<a id="cookiesplease" class="anchor" href="#cookiesplease" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CookiesPlease</h1>
 
 <p>Little script to quickly comply with EU cookie law.<br>
 It'll allow you to add a message asking the user is he accepts or not cookies' storage for your website.</p>
 
 <h2>
-<a id="an-example-" class="anchor" href="#an-example-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An example ?</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>You can see a working example on the author's website : <a href="http://smarchal.com">smarchal.com</a>.<br>
-This implementation uses default options of CookiesPleaseJS.</p>
+<p>CookiesPlease is available on bower:</p>
 
-<h2>
-<a id="how-to-use-it-" class="anchor" href="#how-to-use-it-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use it ?</h2>
-
-<p>You just have to remember two things :</p>
-
-<ul>
-<li>CookiesPleaseJS needs to be initialized <strong>AFTER the DOM is ready</strong> (you can easily do it with <a href="http://jquery.com/">jQuery</a> or <a href="https://code.google.com/p/domready/">domready</a>)</li>
-<li>CookiesPleaseJS needs to be initialized <strong>BEFORE any other javascript</strong> (to avoid cookies to be created)</li>
-</ul>
-
-<p>Here's a common example using jQuery:</p>
-
-<pre><code>&lt;script src="vendor/jquery/jquery.min.js"&gt;
-&lt;script src="vendor/cookiesplease/cookiesplease.min.js"&gt;
-&lt;script&gt;
-    $(function() {
-        cookiesplease.init();
-    });
-&lt;/script&gt;
+<pre><code>$ bower install cookiesplease
 </code></pre>
 
-<p>This starter script will already display the message to the user.<br>
-You then can check if cookies are allowed :</p>
+<p>If you're not using bower you still can install it manually, cloning this repository.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Simply include CookiesPlease as <strong>the very first JavaScript</strong> in your <code>&lt;head&gt;</code> tag.<br>
+As it is now self-initialized, you no longer have to call <code>cookiesplease.init()</code>.</p>
+
+<p>CookiesPlease offers you two functions to check if cookies were accepted, or not:</p>
 
 <pre><code>if(cookiesplease.wasAccepted()) {
     // Run JS if user has accepted cookies' storage
 } 
-</code></pre>
-
-<p>Or if they're not :</p>
-
-<pre><code>if(cookiesplease.wasDeclined()) {
+if(cookiesplease.wasDeclined()) {
     // Run JS if user has refused cookies' storage
 } 
+</code></pre>
+
+<p>Furthermore, it'll dispatch an event when user accept/decline cookies. This event allows you to load others scripts without refreshing the page:</p>
+
+<pre><code>document.addEventListener('CookiesPleaseAccepted', function() {});
+document.addEventListener('CookiesPleaseDeclined', function() {});
+</code></pre>
+
+<p>Here's a common example, defering Google Analytics' loading while user hasn't accepted cookies:</p>
+
+<pre><code>&lt;head&gt;
+    &lt;script src="vendor/cookiesplease/cookiesplease.min.js"&gt;
+    &lt;script&gt;
+        function loadGoogleAnalytics() {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-XXXXXXXX-X', 'auto');
+            ga('send', 'pageview');
+        }
+        if(cookiesplease.wasAccepted()) {
+            loadGoogleAnalytics();
+        }
+        document.addEventListener('CookiesPleaseAccepted', loadGoogleAnalytics);
+    &lt;/script&gt;
+&lt;/head&gt;
 </code></pre>
 
 <h2>
@@ -128,14 +140,14 @@ You then can check if cookies are allowed :</p>
 <h2>
 <a id="what-about-the-css-" class="anchor" href="#what-about-the-css-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about the CSS ?</h2>
 
-<p>CookiesPleaseJS has it's own default CSS, but you can easily customize it. Everything is wrapped in the following element :</p>
+<p>CookiesPlease has it's own default CSS, but you can easily customize it. Everything is wrapped in the following element :</p>
 
 <pre><code>&lt;div id="cookiesplease" class="cookiesplease"&gt;
     ...
 &lt;/div&gt;
 </code></pre>
 
-<p>CookiesPleaseJS' default CSS use the <code>.cookiesplease</code> class, to allow you to use <code>#cookiesplease</code> id (then avoiding any conflict) :</p>
+<p>CookiesPlease's default CSS use the <code>.cookiesplease</code> class, to allow you to use <code>#cookiesplease</code> id (then avoiding any conflict) :</p>
 
 
 
