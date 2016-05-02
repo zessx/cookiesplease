@@ -84,6 +84,8 @@ document.addEventListener('CookiesPleaseDeclined', function() {});
 <h2>
 <a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
 
+<p>CookiesPlease comes with a bunch of options:</p>
+
 <table>
 <thead>
 <tr>
@@ -136,6 +138,17 @@ document.addEventListener('CookiesPleaseDeclined', function() {});
 </tr>
 </tbody>
 </table>
+
+<p>As it is self-initialiazed, you'll need to declare these options in a variable called <code>cookiespleaseOptions</code> (case sensitive) before including the script itself:</p>
+
+<pre><code>&lt;script&gt;
+    var cookiespleaseOptions = {
+        buttonDecline: true,
+        prependToBody: true
+    };
+&lt;/script&gt;
+&lt;script src="vendor/cookiesplease/cookiesplease.min.js"&gt;&lt;/script&gt;
+</code></pre>
 
 <h2>
 <a id="what-about-the-css-" class="anchor" href="#what-about-the-css-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about the CSS ?</h2>
