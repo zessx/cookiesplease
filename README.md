@@ -59,6 +59,8 @@ Here's a common example, defering Google Analytics' loading while user hasn't ac
 Options
 -------
 
+CookiesPlease comes with a bunch of options:
+
 | Option                  | Default value     | Usage                                                     |
 |-------------------------|-------------------|-----------------------------------------------------------|
 | `buttonAccept`          | true              | Show a button to accept cookies' storage                  |
@@ -69,6 +71,16 @@ Options
 | `buttonAcceptText`      | 'Continue'        | Text used for the accept button                           |
 | `buttonDeclineText`     | 'Decline'         | Text used for the decline button                          |
 | `message`               | 'This website...' | Message displayed                                         |
+
+As it is self-initialiazed, you'll need to declare these options in a variable called `cookiespleaseOptions` (case sensitive) before including the script itself:
+
+    <script>
+        var cookiespleaseOptions = {
+            buttonDecline: true,
+            prependToBody: true
+        };
+    </script>
+    <script src="vendor/cookiesplease/cookiesplease.min.js"></script>
 
 What about the CSS ?
 --------------------

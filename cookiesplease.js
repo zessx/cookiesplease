@@ -164,4 +164,4 @@ var cookiesplease = cookiesplease || {
 };
 
 window.cookiesplease = cookiesplease;
-window.cookiesplease.init();
+window.cookiesplease.init(window.cookiespleaseOptions);
