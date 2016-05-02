@@ -38,7 +38,7 @@ Furthermore, it'll dispatch an event when user accept/decline cookies. This even
 Here's a common example, defering Google Analytics' loading while user hasn't accepted cookies:
 
     <head>
-        <script src="vendor/cookiesplease/cookiesplease.min.js">
+        <script src="vendor/cookiesplease/cookiesplease.min.js"></script>
         <script>
             function loadGoogleAnalytics() {
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
