@@ -11,8 +11,7 @@ var cookiesplease = cookiesplease || {
         storeChoiceOnDecline: true,
         prependToBody: false,
         buttonAcceptText: 'Continue',
-        buttonDeclineText: 'Decline',
-        message: 'This website uses cookies so that we can provide you the best user experience possible.<br>By continuing to browse the site you are agreeing to our use of cookies.',
+        buttonDeclineText: 'Decline'
     },
     domElement: null,
     domStyle: null,
@@ -23,6 +22,24 @@ var cookiesplease = cookiesplease || {
             return;
         }
         this.initialized === true;
+
+        if(navigator.language !== undefined){
+            switch (navigator.language) {
+                case "fr-FR":
+                case "fr-BE":
+                case "fr":
+                    this.options.message = 'Ce site utilise des cookies pour vous fournir la meilleure expérience possible.<br>En poursuivant votre navigation sur notre site, vous acceptez l\'utilisation de cookies sur votre ordinateur'
+                    break;
+                case "de-DE":
+                case "de":
+                    this.options.message = 'Diese Seite verwendet Cookies, um Ihnen den bestmöglichen Service zu gewährleisten.<br>Wenn Sie auf der Seite weitersurfen stimmen Sie der Cookie-Nutzung zu. '
+                    break;
+            
+                default:
+                    this.options.message = 'This website uses cookies so that we can provide you the best user experience possible.<br>By continuing to browse the site you are agreeing to our use of cookies.'
+                    break;
+            }
+        }
 
         if (typeof options != 'undefined') {
             for (var option in options) {
